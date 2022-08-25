@@ -21,8 +21,8 @@ VALUES
     ('John', 'Doe', 1, 0),
     ('Mike', 'Chan', 2, 1),
     ('Ashley', 'Rodriguez', 3, 0),
-    ('Kevin', 'Tupik', 4, 2),
+    ('Kevin', 'Tupik', 4, 3),
     ('Kunal', 'Singh', 5, 0),
-    ('Malia', 'Brown', 6, 3),
+    ('Malia', 'Brown', 6, 5),
     ('Sarah', 'Lourd', 7, 0),
-    ('Tom', 'Allen', 8, 4);
+    ('Tom', 'Allen', 8, 7);
