@@ -255,6 +255,60 @@ function terminate() {
                             })
                         })
                 })
+            // delete role
+            } else if (option.terminate === 'Role') {
+                const roleTable = `SELECT * FROM role`;
+                db.query(roleTable, (err, data) => {
+                    const roles = data.map(({ title, id }) => ({ name: title, value: id }));
+
+                    inquirer
+                        .prompt([
+                            {
+                                type: 'list',
+                                name: 'role',
+                                message: 'role:',
+                                choices: roles
+                            }
+                        ])
+                        .then(choice => {
+                            const employee = choice.role;
+                            const sql = `DELETE FROM role WHERE id = ?`;
+                            db.query(sql, employee, (err, res) => {
+                                if (err) throw err;
+                                console.log('=============');
+                                console.log('Role deleted!');
+                                console.log('=============');
+                                terminal();
+                            })
+                        })
+                })
+            // delete department
+            } else if (option.terminate === 'Department') {
+                const departmentTable = `SELECT * FROM department`;
+                db.query(departmentTable, (err, data) => {
+                    const departments = data.map(({ name, id }) => ({ name: name, value: id }));
+
+                    inquirer
+                        .prompt([
+                            {
+                                type: 'list',
+                                name: 'department',
+                                message: 'department:',
+                                choices: departments
+                            }
+                        ])
+                        .then(choice => {
+                            const department = choice.department;
+                            const sql = `DELETE FROM department WHERE id = ?`;
+                            db.query(sql, department, (err, res) => {
+                                if (err) throw err;
+                                console.log('===================');
+                                console.log('Department deleted!');
+                                console.log('===================');
+                                terminal();
+                            })
+                        })
+                })
             }
         })
     }
