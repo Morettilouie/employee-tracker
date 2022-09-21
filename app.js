@@ -53,8 +53,6 @@ function terminal() {
 
         } else if (data.option === 'Update Employee Role') {
             updateEmployee()
-        } else if (data.option === 'Terminate Employee, Role, or Department') {
-            terminate()
         } else if (data.option === 'View All Roles') {
             db.query(
                 `SELECT role.id, title, department.name as department, salary 
@@ -80,8 +78,14 @@ function terminal() {
                         VALUES
                         ('${newDepartment.department}');`
                     )
+                    console.log('=================');
+                    console.log('Department added!');
+                    console.log('=================');
+                    terminal();
                 })
 
+        } else if (data.option === 'Terminate Employee, Role, or Department') {
+            terminate()
         } else if (data.option === 'Quit') {
             db.end()
         }
