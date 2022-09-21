@@ -33,7 +33,7 @@ function terminal() {
                 if (err) throw err;
 
                 for (i = 0; i < res.length; i++) {
-                    if (res[i].manager_id == 0) {
+                    if (res[i].manager_id == null) {
                         res[i].manager = 'None'
                     } else {
                         res[i].manager = res[i].managerFirst + ' ' + res[i].managerLast;
